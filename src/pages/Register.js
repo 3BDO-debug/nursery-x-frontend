@@ -43,7 +43,7 @@ const ContentStyle = styled('div')(({ theme }) => ({
 
 function Register() {
   return (
-    <RootStyle title="Register | Minimal-UI">
+    <RootStyle title="Register | Nursery-X">
       <AuthLayout>
         Already have an account? &nbsp;
         <Link underline="none" variant="subtitle2" component={RouterLink} to={PATH_AUTH.login}>
