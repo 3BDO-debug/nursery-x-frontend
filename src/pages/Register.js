@@ -77,7 +77,7 @@ function Register() {
           <RegisterForm />
 
           <Typography variant="body2" align="center" sx={{ color: 'text.secondary', mt: 3 }}>
-            By registering, I agree to Minimal&nbsp;
+            By registering, I agree to Nursery-X&nbsp;
             <Link underline="always" color="text.primary" href="#">
               Terms of Service
             </Link>
