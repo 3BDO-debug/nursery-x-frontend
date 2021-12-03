@@ -63,7 +63,7 @@ function Overview() {
           ))}
         </Grid>
       </Container>
-      {user && !createAnnouncement && !user.account_type === 'parent' && (
+      {user && !createAnnouncement && user.account_type === 'staff-member' && (
         <Fab
           onClick={() => triggerCreateAnnouncement(true)}
           variant="extended"
