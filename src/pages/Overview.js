@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react';
 // material
-import { Container, Grid, Fab } from '@mui/material';
+import { Container, Grid, Fab, Skeleton } from '@mui/material';
 import CreateIcon from '@mui/icons-material/Create';
 // hooks
 import useSettings from '../hooks/useSettings';
@@ -29,7 +29,11 @@ function Overview() {
       <Container maxWidth={themeStretch ? false : 'xl'}>
         <Grid container spacing={3}>
           <Grid item xs={12} sm={12} md={8} lg={8}>
-            <AppWelcome displayName={`${user.first_name} ${user.last_name}`} />
+            {user ? (
+              <AppWelcome displayName={`${user?.first_name} ${user?.last_name}`} />
+            ) : (
+              <Skeleton sx={{ height: '100%' }} />
+            )}
           </Grid>
           <Grid item xs={12} sm={12} md={4} lg={4}>
             <AppFeatured
@@ -59,7 +63,7 @@ function Overview() {
           ))}
         </Grid>
       </Container>
-      {!createAnnouncement && !user.account_type === 'parent' && (
+      {user && !createAnnouncement && !user.account_type === 'parent' && (
         <Fab
           onClick={() => triggerCreateAnnouncement(true)}
           variant="extended"
