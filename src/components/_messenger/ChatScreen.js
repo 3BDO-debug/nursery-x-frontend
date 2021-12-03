@@ -47,7 +47,6 @@ function ChatScreen() {
   }, [selectedContact, conversation, user]);
 
   useEffect(() => {
-    console.log('messages', messages);
     renderChatScreen();
   }, [selectedContact, user, renderChatScreen, messages, conversation]);
 

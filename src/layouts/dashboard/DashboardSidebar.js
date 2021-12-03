@@ -3,7 +3,7 @@ import { useEffect, useContext } from 'react';
 import { Link as RouterLink, useLocation } from 'react-router-dom';
 // material
 import { alpha, styled } from '@mui/material/styles';
-import { Box, Link, Stack, Avatar, Drawer, Tooltip, Typography, CardActionArea } from '@mui/material';
+import { Box, Link, Stack, Avatar, Drawer, Tooltip, Typography, CardActionArea, Skeleton } from '@mui/material';
 // hooks
 import useCollapseDrawer from '../../hooks/useCollapseDrawer';
 // context
@@ -150,15 +150,23 @@ export default function DashboardSidebar({ isOpenSidebar, onCloseSidebar }) {
             }
           >
             <AccountStyle>
-              <Avatar alt="My Avatar" src={`${mainUrl}/${user?.profile_pic}`} />
-              <Box sx={{ ml: 2 }}>
-                <Typography variant="subtitle2" sx={{ color: 'text.primary' }}>
-                  {`${user?.first_name} ${user?.last_name}`}
-                </Typography>
-                <Typography variant="body2" sx={{ color: 'text.secondary' }}>
-                  {user?.account_type}
-                </Typography>
-              </Box>
+              {user ? (
+                <Avatar alt="My Avatar" src={`${mainUrl}/${user?.profile_pic}`} />
+              ) : (
+                <Skeleton variant="circular" />
+              )}
+              {user ? (
+                <Box sx={{ ml: 2 }}>
+                  <Typography variant="subtitle2" sx={{ color: 'text.primary' }}>
+                    {`${user?.first_name} ${user?.last_name}`}
+                  </Typography>
+                  <Typography variant="body2" sx={{ color: 'text.secondary' }}>
+                    {user?.account_type}
+                  </Typography>
+                </Box>
+              ) : (
+                <Skeleton />
+              )}
             </AccountStyle>
           </Link>
         )}
