@@ -18,7 +18,7 @@ function Chat() {
       {selectedContact && (
         <Paper sx={{ borderBottom: '1px solid lightgray', padding: 2 }}>
           <Stack direction="row" width="100%">
-            <Avatar sx={{ marginRight: 1 }} src={`${mainUrl}/${selectedContact.profilePic}`} />
+            <Avatar sx={{ marginRight: 1 }} src={`${mainUrl}${selectedContact.profilePic}`} />
             <Stack direction="column">
               <Typography variant="subtitle1">{selectedContact.fullname}</Typography>
               <Label variant="ghost" color="info">

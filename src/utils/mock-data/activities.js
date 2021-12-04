@@ -11,7 +11,7 @@ export const activitiesTableColumns = (setTriggeredActivity, triggerRateKids) =>
     label: 'Activity image',
     options: {
       customBodyRender: (value) => (
-        <Avatar variant="rounded" sx={{ width: '200px', height: '200px' }} src={`${mainUrl}/${value}`} />
+        <Avatar variant="rounded" sx={{ width: '200px', height: '200px' }} src={`${mainUrl}${value}`} />
       )
     }
   },

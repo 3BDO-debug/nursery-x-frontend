@@ -35,7 +35,7 @@ function AccountInfo({ parent }) {
                   <br /> max size of {fData(3145728)}
                 </Typography>
               }
-              file={`${mainUrl}/${parent?.parent?.profile_pic}`}
+              file={`${mainUrl}${parent?.parent?.profile_pic}`}
             />
           </CardContent>
           <CardActions sx={{ p: 2, justifyContent: 'flex-end' }}>

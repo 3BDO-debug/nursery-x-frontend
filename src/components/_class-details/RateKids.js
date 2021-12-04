@@ -53,7 +53,7 @@ function RateKids({ isTriggered, closeHandler, classDetails, triggeredActivity }
                 }
               >
                 <ListItemAvatar>
-                  <Avatar src={`${mainUrl}/${classMember.profile_pic}`} alt={classMember.name} />
+                  <Avatar src={`${mainUrl}${classMember.profile_pic}`} alt={classMember.name} />
                 </ListItemAvatar>
                 <ListItemText primary={<Typography variant="subtitle2">{classMember.name}</Typography>} />
               </ListItem>

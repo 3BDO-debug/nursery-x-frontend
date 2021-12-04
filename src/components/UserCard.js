@@ -71,7 +71,7 @@ export default function UserCard({ user, ...other }) {
         />
         <Avatar
           alt={user?.name}
-          src={`${mainUrl}/${user?.profile_pic}`}
+          src={`${mainUrl}${user?.profile_pic}`}
           sx={{
             width: 64,
             height: 64,

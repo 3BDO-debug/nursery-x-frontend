@@ -12,7 +12,7 @@ MyAvatar.propTypes = {
 
 export default function MyAvatar({ cover, ...other }) {
   return (
-    <MAvatar src={`${mainUrl}/${cover}`} alt={cover} color={cover ? 'default' : 'Class'} {...other}>
+    <MAvatar src={`${mainUrl}${cover}`} alt={cover} color={cover ? 'default' : 'Class'} {...other}>
       dsadsa
     </MAvatar>
   );

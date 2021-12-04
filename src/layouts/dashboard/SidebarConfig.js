@@ -62,7 +62,7 @@ export const dashboardSidebarConfig = [
     ]
   },
   {
-    subHeader: 'others',
+    subheader: 'others',
     items: [
       {
         title: 'Messenger',

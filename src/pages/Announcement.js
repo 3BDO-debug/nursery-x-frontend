@@ -32,11 +32,11 @@ function Announcement() {
             <Grid item xs={12} sm={12} md={12} lg={12}>
               <PostHero
                 post={{
-                  cover: `${mainUrl}/${announcement?.cover}`,
+                  cover: `${mainUrl}${announcement?.cover}`,
                   title: announcement?.title,
                   author: {
                     name: announcement?.created_by_name,
-                    avatarUrl: `${mainUrl}/${announcement?.created_by_profile_pic}`
+                    avatarUrl: `${mainUrl}${announcement?.created_by_profile_pic}`
                   },
                   createdAt: announcement?.created_at
                 }}

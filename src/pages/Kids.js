@@ -22,7 +22,7 @@ function Kids() {
   const [kidsTableRows, setKidsTableRows] = useState([]);
 
   useEffect(() => {
-    if (user.account_type === 'parent') {
+    if (user?.account_type === 'parent') {
       const parentKids = _.filter(kids, (o) => o.parent_id === user?.id);
       setKidsTableRows(kidsTableData(parentKids));
     } else {

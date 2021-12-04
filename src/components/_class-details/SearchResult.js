@@ -13,7 +13,7 @@ SearchResult.propTypes = {
 function SearchResult({ result }) {
   return (
     <Box display="flex" alignItems="center">
-      <Avatar src={`${mainUrl}/${result?.profile_pic}`} sx={{ marginRight: 2 }} />
+      <Avatar src={`${mainUrl}${result?.profile_pic}`} sx={{ marginRight: 2 }} />
       <Paper sx={{ display: 'flex', flexDirection: 'column' }}>
         <Typography variant="subtitle2">{result?.name}</Typography>
         <Typography variant="caption">{new Date(result?.birth_date).toLocaleDateString()}</Typography>

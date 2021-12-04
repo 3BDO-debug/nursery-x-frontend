@@ -40,7 +40,7 @@ function Overview() {
               posts={announcements.map((announcement, index) => ({
                 id: index,
                 title: announcement.title,
-                image: `${mainUrl}/${announcement.cover}`,
+                image: `${mainUrl}${announcement.cover}`,
                 linkTo: `${PATH_APP.announcement}/${announcement.id}`
               }))}
             />
@@ -50,10 +50,10 @@ function Overview() {
               <PostCard
                 post={{
                   id: announcement.id,
-                  cover: `${mainUrl}/${announcement.cover}`,
+                  cover: `${mainUrl}${announcement.cover}`,
                   title: announcement.title,
                   authorName: announcement.created_by_name,
-                  authorAvatar: `${mainUrl}/${announcement.created_by_profile_pic}`,
+                  authorAvatar: `${mainUrl}${announcement.created_by_profile_pic}`,
                   createdAt: new Date(announcement.created_at).toLocaleDateString(),
                   linkTo: `${PATH_APP.announcement}/${announcement.id}`
                 }}

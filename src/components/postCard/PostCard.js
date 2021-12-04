@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { useFormik } from 'formik';
 import { useSnackbar } from 'notistack';
@@ -25,6 +25,8 @@ import SendIcon from '@mui/icons-material/Send';
 // apis
 import { mainUrl } from '../../_apis_/axios';
 import { classPostCommentsFetcher, createClassPostComment } from '../../_apis_/classes';
+// contexts
+import { AuthContext } from '../../contexts';
 // components
 import PostComment from './PostComment';
 import Scrollbar from '../Scrollbar';
@@ -37,6 +39,7 @@ PostCard.propTypes = {
 function PostCard({ post }) {
   const { enqueueSnackbar, closeSnackbar } = useSnackbar();
   const [comments, setComments] = useState([]);
+  const user = useContext(AuthContext).userState[0];
 
   const formik = useFormik({
     initialValues: {
@@ -93,7 +96,7 @@ function PostCard({ post }) {
   return (
     <Card sx={{ mt: 2 }}>
       <CardHeader
-        avatar={<Avatar src={`${mainUrl}/${post.created_by_profile}`} alt={post.created_by_name} />}
+        avatar={<Avatar src={`${mainUrl}${post.created_by_profile}`} alt={post.created_by_name} />}
         title={post.created_by_name}
         subheader={new Date(post.created_at).toLocaleString()}
       />
@@ -109,7 +112,7 @@ function PostCard({ post }) {
               <Grid item xs={12} sm={12} md={12} lg={12}>
                 <Paper
                   component="img"
-                  src={`${mainUrl}/${post.post_attachment}`}
+                  src={`${mainUrl}${post.post_attachment}`}
                   alt="post attachment"
                   sx={{ width: '100%', height: '400px', objectFit: 'cover' }}
                 />
@@ -143,7 +146,7 @@ function PostCard({ post }) {
       </CardContent>
       <CardActions>
         <Stack direction="row" alignItems="center" padding={3} width="100%">
-          <Avatar />
+          <Avatar src={`${mainUrl}${user?.profile_pic}`} />
           <InputBase
             value={values.comment}
             onChange={(event) => setFieldValue('comment', event.target.value)}

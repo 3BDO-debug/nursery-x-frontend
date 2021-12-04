@@ -23,7 +23,7 @@ function ChatScreen() {
         context = conversation.map((message) => (
           <Message
             key={message.id}
-            avatarUrl={`${mainUrl}/${message.sender_profile_pic}`}
+            avatarUrl={`${mainUrl}${message.sender_profile_pic}`}
             timestamp={new Date(message.timestamp).toLocaleString()}
             body={message.body}
             senderView={user.id === message.sender}

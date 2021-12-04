@@ -94,7 +94,7 @@ export default function AccountPopover() {
           })
         }}
       >
-        <Avatar alt="My Avatar" src={`${mainUrl}/${user?.profile_pic}`} />
+        <Avatar alt="My Avatar" src={`${mainUrl}${user?.profile_pic}`} />
       </MIconButton>
 
       <MenuPopover open={open} onClose={handleClose} anchorEl={anchorRef.current} sx={{ width: 220 }}>

@@ -151,7 +151,7 @@ export default function DashboardSidebar({ isOpenSidebar, onCloseSidebar }) {
           >
             <AccountStyle>
               {user ? (
-                <Avatar alt="My Avatar" src={`${mainUrl}/${user?.profile_pic}`} />
+                <Avatar alt="My Avatar" src={`${mainUrl}${user?.profile_pic}`} />
               ) : (
                 <Skeleton variant="circular" />
               )}

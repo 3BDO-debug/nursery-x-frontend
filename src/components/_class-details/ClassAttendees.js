@@ -23,7 +23,7 @@ function ClassAttendees({ classDetails }) {
           {classDetails?.class_members_data?.map((classMember) => (
             <Grid key={classMember.id} item xs={12} sm={6} md={3} lg={3}>
               <Avatar
-                src={`${mainUrl}/${classMember.profile_pic}`}
+                src={`${mainUrl}${classMember.profile_pic}`}
                 alt={classMember.name}
                 sx={{ width: '60px', height: '60px', cursor: 'pointer' }}
                 onClick={() => navigate(`${PATH_APP.dashboard.management.kidProfile}/${classMember.id}`)}

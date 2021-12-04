@@ -13,7 +13,7 @@ PostComment.propTypes = {
 function PostComment({ comment }) {
   return (
     <Paper sx={{ display: 'flex', alignItems: 'flex-start', p: 2, width: '100%' }}>
-      <Avatar src={`${mainUrl}/${comment.created_by_profile_pic}`} sx={{ marginRight: '15px' }} />
+      <Avatar src={`${mainUrl}${comment.created_by_profile_pic}`} sx={{ marginRight: '15px' }} />
       <Paper
         sx={{
           display: 'flex',

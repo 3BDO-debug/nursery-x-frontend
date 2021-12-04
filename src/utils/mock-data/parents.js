@@ -14,7 +14,7 @@ export const parentsTableColumns = [
     options: {
       customBodyRender: (value) => (
         <Stack direction="row" alignItems="center">
-          <Avatar src={`${mainUrl}/${value.profile_pic}`} alt={value.fullname} />
+          <Avatar src={`${mainUrl}${value.profile_pic}`} alt={value.fullname} />
           <Typography sx={{ marginLeft: '10px' }} variant="subtitle1">
             {value.fullname}
           </Typography>

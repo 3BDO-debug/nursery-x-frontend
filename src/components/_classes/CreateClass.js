@@ -46,12 +46,12 @@ function CreateClass({ isTriggered, closeHandler }) {
       className: Yup.string().required('Class name is required'),
       classCover: Yup.mixed().required('Class cover image is required')
     }),
-    onSubmit: (values, { setSubmitting, resetForm }) => {
+    onSubmit: async (values, { setSubmitting, resetForm }) => {
       const data = new FormData();
       data.append('className', values.className);
       data.append('classCover', values.classCover);
 
-      classesAdder(data)
+      await classesAdder(data)
         .then((classesResponse) => {
           setClasses(classesResponse);
           enqueueSnackbar('Class successfully created', {

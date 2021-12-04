@@ -24,7 +24,7 @@ function Contacts() {
   };
 
   useEffect(() => {
-    if (user.account_type === 'parent') {
+    if (user?.account_type === 'parent') {
       setContacts(
         staff.map((staffMember) => ({
           accountId: staffMember.staff_account,
@@ -58,7 +58,7 @@ function Contacts() {
           alignItems: 'center'
         }}
       >
-        <Avatar src={`${mainUrl}/${user?.profile_pic}`} />
+        <Avatar src={`${mainUrl}${user?.profile_pic}`} />
         <InputBase
           sx={{ marginLeft: 3, width: '100%' }}
           placeholder="Search contacts..."
@@ -75,7 +75,7 @@ function Contacts() {
           <Contact
             onClickHandler={() => handleSelectContact(contact)}
             key={contact.accountId}
-            avatarUrl={`${mainUrl}/${contact.profilePic}`}
+            avatarUrl={`${mainUrl}${contact.profilePic}`}
             fullname={contact.fullname}
           />
         ))}

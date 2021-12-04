@@ -40,7 +40,7 @@ export default function KidClasses() {
             key={activityClass.id}
             post={{
               id: activityClass.id,
-              cover: `${mainUrl}/${activityClass.class_cover}`,
+              cover: `${mainUrl}${activityClass.class_cover}`,
               title: activityClass.class_name,
               audience: activityClass.class_members.length,
               authorName: activityClass.teacher_name,

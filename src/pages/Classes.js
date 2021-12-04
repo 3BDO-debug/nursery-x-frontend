@@ -24,7 +24,7 @@ function Classes() {
   const [mappedClasses, setMappedClasses] = useState([]);
 
   useEffect(() => {
-    if (user.account_type === 'parent') {
+    if (user?.account_type === 'parent') {
       classes.forEach((activityClass) => {
         activityClass.class_members_data.forEach((classMember) => {
           if (classMember.parent_id === user?.id) {
@@ -47,7 +47,7 @@ function Classes() {
             { name: 'Classes', href: PATH_APP.dashboard.management.classes }
           ]}
           action={
-            user.account_type !== 'parent' && (
+            user?.account_type !== 'parent' && (
               <Button variant="contained" startIcon={<AddIcon />} onClick={() => triggerCreateClass(true)}>
                 Create new class
               </Button>
@@ -61,11 +61,11 @@ function Classes() {
                 key={activityClass.id}
                 post={{
                   id: activityClass.id,
-                  cover: `${mainUrl}/${activityClass.class_cover}`,
+                  cover: `${mainUrl}${activityClass.class_cover}`,
                   title: activityClass.class_name,
                   audience: activityClass.class_members.length,
                   authorName: activityClass.teacher_name,
-                  authorAvatar: `${mainUrl}/${activityClass.teacher_profile_pic}`,
+                  authorAvatar: `${mainUrl}${activityClass.teacher_profile_pic}`,
                   createdAt: new Date(activityClass.created_at).toLocaleString(),
                   linkTo: `${PATH_APP.dashboard.management.classDetails}/${activityClass.id}`
                 }}

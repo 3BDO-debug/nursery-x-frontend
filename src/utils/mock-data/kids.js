@@ -16,7 +16,7 @@ export const kidsTableColumns = [
   {
     name: 'kidPhoto',
     label: 'Kid photo',
-    options: { customBodyRender: (value) => <Avatar src={`${mainUrl}/${value}`} alt={value} /> }
+    options: { customBodyRender: (value) => <Avatar src={`${mainUrl}${value}`} alt={value} /> }
   },
   { name: 'birthDate', label: 'Birth date' },
   {
