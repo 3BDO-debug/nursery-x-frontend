@@ -53,14 +53,14 @@ function CreateAnnouncement({ isTriggered, closeHandler }) {
       body: Yup.string().required('Body is required'),
       cover: Yup.mixed().required('Cover is required')
     }),
-    onSubmit: (values, { setSubmitting, resetForm }) => {
+    onSubmit: async (values, { setSubmitting, resetForm }) => {
       const data = new FormData();
       data.append('title', values.title);
       data.append('body', values.body);
       data.append('isFeatured', values.isFeatured ? 'isFeatured' : '');
       data.append('cover', values.cover);
 
-      announcementAdder(data)
+      await announcementAdder(data)
         .then((announcementsResponse) => {
           setAnnouncements(announcementsResponse);
           enqueueSnackbar('Announcement posted successfully', {
