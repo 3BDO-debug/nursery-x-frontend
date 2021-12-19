@@ -1,8 +1,6 @@
 import { Icon } from '@iconify/react';
 // material
 import { Avatar, Button } from '@mui/material';
-// apis
-import { mainUrl } from '../../_apis_/axios';
 
 export const activitiesTableColumns = (setTriggeredActivity, triggerRateKids) => [
   { name: 'activity', label: 'Activity' },
@@ -10,9 +8,7 @@ export const activitiesTableColumns = (setTriggeredActivity, triggerRateKids) =>
     name: 'activityImg',
     label: 'Activity image',
     options: {
-      customBodyRender: (value) => (
-        <Avatar variant="rounded" sx={{ width: '200px', height: '200px' }} src={`${mainUrl}${value}`} />
-      )
+      customBodyRender: (value) => <Avatar variant="rounded" sx={{ width: '200px', height: '200px' }} src={value} />
     }
   },
   { name: 'startsAt', label: 'Starts at' },

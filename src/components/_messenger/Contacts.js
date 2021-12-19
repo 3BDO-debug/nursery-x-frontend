@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState, useCallback } from 'react';
 import _ from 'lodash';
 // material
 import { Paper, Stack, Avatar, Divider, InputBase, IconButton } from '@mui/material';
@@ -6,8 +6,6 @@ import SearchIcon from '@mui/icons-material/Search';
 import Scrollbar from '../Scrollbar';
 // contexts
 import { UsersContext, AuthContext, MessengerContext } from '../../contexts';
-// apis
-import { mainUrl } from '../../_apis_/axios';
 // components
 import Contact from './Contact';
 
@@ -17,11 +15,28 @@ function Contacts() {
   const staff = useContext(UsersContext).staffState[0];
   const setSelectedContact = useContext(MessengerContext).selectedContactState[1];
 
+  const [query, setQuery] = useState('');
   const [contacts, setContacts] = useState([]);
+  const [searchResults, setSearchResults] = useState(contacts);
 
   const handleSelectContact = (contact) => {
     setSelectedContact(contact);
   };
+
+  const filterContacts = useCallback(() => {
+    if (!query) {
+      return contacts;
+    }
+
+    return _.filter(contacts, (o) => {
+      const contactName = o.fullname.toLowerCase();
+      return _.includes(contactName, query);
+    });
+  }, [contacts, query]);
+
+  useEffect(() => {
+    setSearchResults(filterContacts());
+  }, [query, filterContacts]);
 
   useEffect(() => {
     if (user?.account_type === 'parent') {
@@ -58,10 +73,12 @@ function Contacts() {
           alignItems: 'center'
         }}
       >
-        <Avatar src={`${mainUrl}${user?.profile_pic}`} />
+        <Avatar src={user?.profile_pic} />
         <InputBase
           sx={{ marginLeft: 3, width: '100%' }}
           placeholder="Search contacts..."
+          value={query}
+          onChange={(event) => setQuery(event.target.value)}
           endAdornment={
             <IconButton>
               <SearchIcon />
@@ -71,14 +88,26 @@ function Contacts() {
       </Paper>
       <Divider sx={{ marginTop: 2, marginBottom: 2 }} />
       <Scrollbar sx={{ display: 'flex', flexDirection: 'column', maxHeight: '400px' }}>
-        {contacts?.map((contact) => (
-          <Contact
-            onClickHandler={() => handleSelectContact(contact)}
-            key={contact.accountId}
-            avatarUrl={`${mainUrl}${contact.profilePic}`}
-            fullname={contact.fullname}
-          />
-        ))}
+        {query === '' &&
+          searchResults.length === 0 &&
+          contacts.map((contact) => (
+            <Contact
+              onClickHandler={() => handleSelectContact(contact)}
+              key={contact.accountId}
+              avatarUrl={contact.profilePic}
+              fullname={contact.fullname}
+            />
+          ))}
+
+        {searchResults.length > 0 &&
+          searchResults.map((contact) => (
+            <Contact
+              onClickHandler={() => handleSelectContact(contact)}
+              key={contact.accountId}
+              avatarUrl={contact.profilePic}
+              fullname={contact.fullname}
+            />
+          ))}
       </Scrollbar>
     </Stack>
   );

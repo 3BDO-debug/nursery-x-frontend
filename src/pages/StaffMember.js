@@ -9,8 +9,6 @@ import useSettings from '../hooks/useSettings';
 import { PATH_APP } from '../routes/paths';
 // context
 import { UsersContext } from '../contexts';
-// apis
-import { mainUrl } from '../_apis_/axios';
 // utils
 import { fData } from '../utils/formatNumber';
 // componenets
@@ -47,7 +45,7 @@ function StaffMember() {
           <Grid item xs={12} sm={12} md={4} lg={4}>
             <Card sx={{ py: 10, px: 3, textAlign: 'center' }}>
               <UploadAvatar
-                file={`${mainUrl}${staffMember?.profile_pic}`}
+                file={staffMember?.profile_pic}
                 caption={
                   <Typography
                     variant="caption"

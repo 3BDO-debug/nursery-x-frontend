@@ -48,13 +48,13 @@ function CreateActivity({ isTriggered, closeHandler, setClassActivities, activit
       activityImg: Yup.mixed().required('Activity image is required'),
       startsAt: Yup.date().required('Activity start time is required')
     }),
-    onSubmit: (values, { resetForm, setSubmitting }) => {
+    onSubmit: async (values, { resetForm, setSubmitting }) => {
       const data = new FormData();
       data.append('activity', values.activity);
       data.append('activityImg', values.activityImg);
       data.append('startsAt', new Date(values.startsAt).toLocaleString());
 
-      classActivityAdder(classId, data)
+      await classActivityAdder(classId, data)
         .then((classActivitiesResponse) => {
           setClassActivities(activitiesTableData(classActivitiesResponse));
           enqueueSnackbar('Class activity created successfully', {

@@ -5,8 +5,6 @@ import _ from 'lodash';
 import { Container, Card, Grid, Box } from '@mui/material';
 // hooks
 import useSettings from '../hooks/useSettings';
-// apis
-import { mainUrl } from '../_apis_/axios';
 // contexts
 import { AnnouncementsContext } from '../contexts';
 // componenets
@@ -32,11 +30,11 @@ function Announcement() {
             <Grid item xs={12} sm={12} md={12} lg={12}>
               <PostHero
                 post={{
-                  cover: `${mainUrl}${announcement?.cover}`,
+                  cover: announcement?.cover,
                   title: announcement?.title,
                   author: {
                     name: announcement?.created_by_name,
-                    avatarUrl: `${mainUrl}${announcement?.created_by_profile_pic}`
+                    avatarUrl: announcement?.created_by_profile_pic
                   },
                   createdAt: announcement?.created_at
                 }}

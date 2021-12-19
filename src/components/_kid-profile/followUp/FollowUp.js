@@ -6,8 +6,6 @@ import MUIDataTable from 'mui-datatables';
 import { Stack, Typography, Avatar, Rating, Link } from '@mui/material';
 // routes
 import { PATH_APP } from '../../../routes/paths';
-// apis
-import { mainUrl } from '../../../_apis_/axios';
 
 FollowUp.propTypes = {
   activitiesRatingsData: PropTypes.array
@@ -23,7 +21,7 @@ function FollowUp({ activitiesRatingsData }) {
       options: {
         customBodyRender: (value) => (
           <Stack direction="row" alignItems="center">
-            <Avatar src={`${mainUrl}/${value.teacherProfilePic}`} />
+            <Avatar src={value.teacherProfilePic} />
             <Typography sx={{ marginLeft: '10px' }} variant="subtitle2">
               {value.teacherName}
             </Typography>

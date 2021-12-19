@@ -51,16 +51,7 @@ export const dashboardSidebarConfig = [
       }
     ]
   },
-  {
-    subheader: 'resources',
-    items: [
-      {
-        title: 'Storage',
-        path: PATH_APP.dashboard.resources.storage,
-        icon: <Icon icon="carbon:block-storage-alt" width={40} height={40} />
-      }
-    ]
-  },
+
   {
     subheader: 'others',
     items: [

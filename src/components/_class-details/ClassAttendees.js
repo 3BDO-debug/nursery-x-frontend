@@ -3,8 +3,6 @@ import PropTypes from 'prop-types';
 import { useNavigate } from 'react-router';
 // material
 import { Card, CardHeader, CardContent, Grid, Avatar } from '@mui/material';
-// apis
-import { mainUrl } from '../../_apis_/axios';
 // routes
 import { PATH_APP } from '../../routes/paths';
 
@@ -23,7 +21,7 @@ function ClassAttendees({ classDetails }) {
           {classDetails?.class_members_data?.map((classMember) => (
             <Grid key={classMember.id} item xs={12} sm={6} md={3} lg={3}>
               <Avatar
-                src={`${mainUrl}${classMember.profile_pic}`}
+                src={classMember.profile_pic}
                 alt={classMember.name}
                 sx={{ width: '60px', height: '60px', cursor: 'pointer' }}
                 onClick={() => navigate(`${PATH_APP.dashboard.management.kidProfile}/${classMember.id}`)}

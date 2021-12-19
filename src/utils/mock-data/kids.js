@@ -2,8 +2,6 @@ import { Link } from 'react-router-dom';
 // material
 import { Typography, Avatar, IconButton } from '@mui/material';
 import VisibilityIcon from '@mui/icons-material/Visibility';
-// apis
-import { mainUrl } from '../../_apis_/axios';
 // routes
 import { PATH_APP } from '../../routes/paths';
 
@@ -16,7 +14,7 @@ export const kidsTableColumns = [
   {
     name: 'kidPhoto',
     label: 'Kid photo',
-    options: { customBodyRender: (value) => <Avatar src={`${mainUrl}${value}`} alt={value} /> }
+    options: { customBodyRender: (value) => <Avatar src={value} alt={value} /> }
   },
   { name: 'birthDate', label: 'Birth date' },
   {

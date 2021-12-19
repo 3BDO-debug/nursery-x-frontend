@@ -5,20 +5,11 @@ import { useState, useRef } from 'react';
 // material
 import { alpha, useTheme, styled } from '@mui/material/styles';
 import { Box, Card, Paper, Button, Typography, CardContent } from '@mui/material';
-// utils
-import mockData from '../../utils/mock-data';
 //
 import { varFadeInRight, MotionContainer } from '../animate';
 import { CarouselControlsArrowsIndex } from './controls';
 
 // ----------------------------------------------------------------------
-
-const MOCK_CAROUSELS = [...Array(5)].map((_, index) => ({
-  id: mockData.id(index),
-  title: mockData.text.title(index),
-  image: mockData.image.feed(index),
-  description: mockData.text.description(index)
-}));
 
 const CarouselImgStyle = styled('img')({
   top: 0,
@@ -94,7 +85,7 @@ function CarouselItem({ item, isActive }) {
 export default function CarouselAnimation() {
   const theme = useTheme();
   const carouselRef = useRef();
-  const [currentIndex, setCurrentIndex] = useState(theme.direction === 'rtl' ? MOCK_CAROUSELS.length - 1 : 0);
+  const [currentIndex, setCurrentIndex] = useState(theme.direction === 'rtl' ? [].length - 1 : 0);
 
   const settings = {
     speed: 800,
@@ -118,14 +109,14 @@ export default function CarouselAnimation() {
   return (
     <Card>
       <Slider ref={carouselRef} {...settings}>
-        {MOCK_CAROUSELS.map((item, index) => (
+        {[].map((item, index) => (
           <CarouselItem key={item.title} item={item} isActive={index === currentIndex} />
         ))}
       </Slider>
 
       <CarouselControlsArrowsIndex
         index={currentIndex}
-        total={MOCK_CAROUSELS.length}
+        total={[].length}
         onNext={handleNext}
         onPrevious={handlePrevious}
       />

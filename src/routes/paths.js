@@ -24,9 +24,7 @@ export const PATH_APP = {
       classDetails: path(ROOT_PATH, '/class-details'),
       meetings: path(ROOT_PATH, '/meetings')
     },
-    resources: {
-      storage: path(ROOT_PATH, '/storage')
-    },
+
     others: {
       messenger: path(ROOT_PATH, '/messenger')
     }

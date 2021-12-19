@@ -12,7 +12,6 @@ import { Avatar, Button, Box, Divider, MenuItem, Typography } from '@mui/materia
 // context
 import { AuthContext } from '../../contexts';
 // apis
-import { mainUrl } from '../../_apis_/axios';
 import { logoutRequest } from '../../_apis_/auth';
 // routes
 import { PATH_APP } from '../../routes/paths';
@@ -94,7 +93,7 @@ export default function AccountPopover() {
           })
         }}
       >
-        <Avatar alt="My Avatar" src={`${mainUrl}${user?.profile_pic}`} />
+        <Avatar alt="My Avatar" src={user?.profile_pic} />
       </MIconButton>
 
       <MenuPopover open={open} onClose={handleClose} anchorEl={anchorRef.current} sx={{ width: 220 }}>

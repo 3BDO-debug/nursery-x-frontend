@@ -78,7 +78,6 @@ export default function Router() {
         { path: PATH_APP.dashboard.management.classes, element: <Classes /> },
         { path: `${PATH_APP.dashboard.management.classDetails}/:classId`, element: <ClassDetails /> },
         { path: PATH_APP.dashboard.management.meetings, element: <Meetings /> },
-        { path: PATH_APP.dashboard.resources.storage, element: <Storage /> },
         {
           path: PATH_APP.dashboard.others.messenger,
           element: (
@@ -127,7 +126,6 @@ const KidProfile = Loadable(lazy(() => import('../pages/KidProfile')));
 const Classes = Loadable(lazy(() => import('../pages/Classes')));
 const ClassDetails = Loadable(lazy(() => import('../pages/ClassDetails')));
 const Meetings = Loadable(lazy(() => import('../pages/Meetings')));
-const Storage = Loadable(lazy(() => import('../pages/Storage')));
 const Messenger = Loadable(lazy(() => import('../pages/Messenger')));
 const NotFound = Loadable(lazy(() => import('../pages/Page404')));
 const Register = Loadable(lazy(() => import('../pages/Register')));

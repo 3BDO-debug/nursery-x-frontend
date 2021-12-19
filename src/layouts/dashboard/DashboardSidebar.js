@@ -3,19 +3,18 @@ import { useEffect, useContext } from 'react';
 import { Link as RouterLink, useLocation } from 'react-router-dom';
 // material
 import { alpha, styled } from '@mui/material/styles';
-import { Box, Link, Stack, Avatar, Drawer, Tooltip, Typography, CardActionArea, Skeleton } from '@mui/material';
+import { Box, Link, Stack, Avatar, Drawer, Tooltip, Typography, CardActionArea, Skeleton, Button } from '@mui/material';
 // hooks
 import useCollapseDrawer from '../../hooks/useCollapseDrawer';
 // context
 import { AuthContext } from '../../contexts';
-// apis
-import { mainUrl } from '../../_apis_/axios';
 // routes
 import { PATH_APP } from '../../routes/paths';
 // components
 import Logo from '../../components/Logo';
 import Scrollbar from '../../components/Scrollbar';
 import NavSection from '../../components/NavSection';
+import DocIllustration from '../../assets/illustration_doc';
 //
 import { MHidden } from '../../components/@material-extend';
 import { interfaceSidebarConfig, dashboardSidebarConfig } from './SidebarConfig';
@@ -138,7 +137,7 @@ export default function DashboardSidebar({ isOpenSidebar, onCloseSidebar }) {
         </Stack>
 
         {isCollapse ? (
-          <Avatar alt="My Avatar" src={`${mainUrl}/${user?.profile_pic}`} sx={{ mx: 'auto', mb: 2 }} />
+          <Avatar alt="My Avatar" src={user?.profile_pic} sx={{ mx: 'auto', mb: 2 }} />
         ) : (
           <Link
             underline="none"
@@ -150,11 +149,7 @@ export default function DashboardSidebar({ isOpenSidebar, onCloseSidebar }) {
             }
           >
             <AccountStyle>
-              {user ? (
-                <Avatar alt="My Avatar" src={`${mainUrl}${user?.profile_pic}`} />
-              ) : (
-                <Skeleton variant="circular" />
-              )}
+              {user ? <Avatar alt="My Avatar" src={user?.profile_pic} /> : <Skeleton variant="circular" />}
               {user ? (
                 <Box sx={{ ml: 2 }}>
                   <Typography variant="subtitle2" sx={{ color: 'text.primary' }}>
@@ -176,6 +171,24 @@ export default function DashboardSidebar({ isOpenSidebar, onCloseSidebar }) {
         navConfig={user?.account_type === 'parent' ? interfaceSidebarConfig : dashboardSidebarConfig}
         isShow={!isCollapse}
       />
+
+      {!isCollapse && (
+        <Stack spacing={3} alignItems="center" sx={{ px: 5, pb: 5, mt: 10, width: 1, textAlign: 'center' }}>
+          <DocIllustration sx={{ width: 1 }} />
+
+          <div>
+            <Typography gutterBottom variant="subtitle1">
+              Hi, {`${user?.first_name} ${user?.last_name}`}
+            </Typography>
+            <Typography variant="body2" sx={{ color: 'text.secondary' }}>
+              Likes what you see ?
+            </Typography>
+          </div>
+          <Button href="https://codehustle.live/" target="_blank" variant="contained">
+            Check us out
+          </Button>
+        </Stack>
+      )}
     </Scrollbar>
   );
 

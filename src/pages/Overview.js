@@ -6,8 +6,6 @@ import CreateIcon from '@mui/icons-material/Create';
 import useSettings from '../hooks/useSettings';
 // context
 import { AuthContext, AnnouncementsContext } from '../contexts';
-// apis
-import { mainUrl } from '../_apis_/axios';
 // routes
 import { PATH_APP } from '../routes/paths';
 // components
@@ -40,7 +38,7 @@ function Overview() {
               posts={announcements.map((announcement, index) => ({
                 id: index,
                 title: announcement.title,
-                image: `${mainUrl}${announcement.cover}`,
+                image: announcement.cover,
                 linkTo: `${PATH_APP.announcement}/${announcement.id}`
               }))}
             />
@@ -50,10 +48,10 @@ function Overview() {
               <PostCard
                 post={{
                   id: announcement.id,
-                  cover: `${mainUrl}${announcement.cover}`,
+                  cover: announcement.cover,
                   title: announcement.title,
                   authorName: announcement.created_by_name,
-                  authorAvatar: `${mainUrl}${announcement.created_by_profile_pic}`,
+                  authorAvatar: announcement.created_by_profile_pic,
                   createdAt: new Date(announcement.created_at).toLocaleDateString(),
                   linkTo: `${PATH_APP.announcement}/${announcement.id}`
                 }}

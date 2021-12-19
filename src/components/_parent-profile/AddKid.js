@@ -85,12 +85,12 @@ function AddKid({ isTriggered, closeHandler }) {
       birthDate: Yup.date().required('Kid birth date is required'),
       healthConditionNotes: Yup.string().required('Kid health condition notes is required')
     }),
-    onSubmit: (values, { resetForm, setSubmitting }) => {
+    onSubmit: async (values, { resetForm, setSubmitting }) => {
       const data = new FormData();
       data.append('values', JSON.stringify(values));
       data.append('attachment', values.attachment);
       data.append('profilePic', values.profilePic);
-      kidsAdder(data)
+      await kidsAdder(data)
         .then((kidsResponse) => {
           setKids(kidsResponse);
           enqueueSnackbar('Kid added successfully', {

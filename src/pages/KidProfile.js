@@ -6,12 +6,13 @@ import { useParams } from 'react-router';
 import _ from 'lodash';
 // material
 import { styled } from '@mui/material/styles';
-import { Tab, Box, Card, Tabs, Container } from '@mui/material';
+import { Tab, Box, Card, Tabs, Container, Button } from '@mui/material';
 // hooks
 import useSettings from '../hooks/useSettings';
 // routes
 import { PATH_APP } from '../routes/paths';
 // apis
+import { mainUrl } from '../_apis_/axios';
 import { classActivityRatingsFetcher } from '../_apis_/classes';
 // contexts
 import { KidsContext } from '../contexts';
@@ -99,6 +100,15 @@ function KidProfile() {
             { name: 'Kids', href: PATH_APP.dashboard.management.kids },
             { name: kid?.name }
           ]}
+          action={
+            <Button
+              onClick={() => window.open(`${mainUrl}${kid?.attachment}`)}
+              startIcon={<Icon icon="carbon:document" />}
+              variant="contained"
+            >
+              Attachment
+            </Button>
+          }
         />
         <Card
           sx={{

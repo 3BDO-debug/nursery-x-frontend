@@ -1,5 +1,4 @@
 import PropTypes from 'prop-types';
-import { Link as RouterLink } from 'react-router-dom';
 // material
 import { styled } from '@mui/material/styles';
 import { Typography, Button, Card, CardContent } from '@mui/material';
@@ -45,8 +44,8 @@ export default function AppWelcome({ displayName }) {
           If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything
         </Typography>
 
-        <Button variant="contained" to="#" component={RouterLink}>
-          Go Now
+        <Button variant="contained" onClick={() => window.open('https://codehustle.live', '_blank')}>
+          View more
         </Button>
       </CardContent>
 

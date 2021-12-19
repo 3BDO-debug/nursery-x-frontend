@@ -2,8 +2,6 @@ import { Link } from 'react-router-dom';
 // material
 import { Stack, Avatar, Typography, IconButton } from '@mui/material';
 import VisibilityIcon from '@mui/icons-material/Visibility';
-// apis
-import { mainUrl } from '../../_apis_/axios';
 // routes
 import { PATH_APP } from '../../routes/paths';
 
@@ -14,7 +12,7 @@ export const parentsTableColumns = [
     options: {
       customBodyRender: (value) => (
         <Stack direction="row" alignItems="center">
-          <Avatar src={`${mainUrl}${value.profile_pic}`} alt={value.fullname} />
+          <Avatar src={value.profile_pic} alt={value.fullname} />
           <Typography sx={{ marginLeft: '10px' }} variant="subtitle1">
             {value.fullname}
           </Typography>

@@ -5,8 +5,6 @@ import { Grid, Card, CardHeader, CardContent, TextField, Button, Typography, Car
 import { UploadAvatar } from '../upload';
 // utils
 import { fData } from '../../utils/formatNumber';
-// apis
-import { mainUrl } from '../../_apis_/axios';
 
 AccountInfo.propTypes = {
   parent: PropTypes.object
@@ -35,7 +33,7 @@ function AccountInfo({ parent }) {
                   <br /> max size of {fData(3145728)}
                 </Typography>
               }
-              file={`${mainUrl}${parent?.parent?.profile_pic}`}
+              file={parent?.parent?.profile_pic}
             />
           </CardContent>
           <CardActions sx={{ p: 2, justifyContent: 'flex-end' }}>

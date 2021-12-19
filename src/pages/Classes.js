@@ -6,8 +6,6 @@ import AddIcon from '@mui/icons-material/Add';
 import useSettings from '../hooks/useSettings';
 // contexts
 import { AuthContext, ClassesContext } from '../contexts';
-// apis
-import { mainUrl } from '../_apis_/axios';
 // routes
 import { PATH_APP } from '../routes/paths';
 // components
@@ -61,11 +59,11 @@ function Classes() {
                 key={activityClass.id}
                 post={{
                   id: activityClass.id,
-                  cover: `${mainUrl}${activityClass.class_cover}`,
+                  cover: activityClass.class_cover,
                   title: activityClass.class_name,
                   audience: activityClass.class_members.length,
                   authorName: activityClass.teacher_name,
-                  authorAvatar: `${mainUrl}${activityClass.teacher_profile_pic}`,
+                  authorAvatar: activityClass.teacher_profile_pic,
                   createdAt: new Date(activityClass.created_at).toLocaleString(),
                   linkTo: `${PATH_APP.dashboard.management.classDetails}/${activityClass.id}`
                 }}

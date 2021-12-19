@@ -14,8 +14,6 @@ import {
   ListItemText,
   Typography
 } from '@mui/material';
-// apis
-import { mainUrl } from '../../_apis_/axios';
 // componenets
 import { DialogAnimate, varSlideInUp } from '../animate';
 import RateKidForm from './RateKidForm';
@@ -53,7 +51,7 @@ function RateKids({ isTriggered, closeHandler, classDetails, triggeredActivity }
                 }
               >
                 <ListItemAvatar>
-                  <Avatar src={`${mainUrl}${classMember.profile_pic}`} alt={classMember.name} />
+                  <Avatar src={classMember.profile_pic} alt={classMember.name} />
                 </ListItemAvatar>
                 <ListItemText primary={<Typography variant="subtitle2">{classMember.name}</Typography>} />
               </ListItem>
