@@ -1,8 +1,8 @@
 import axios from 'axios';
 
-// https://nurseryx.pythonanywhere.com  http://127.0.0.1:8000
+// https://nurseryx.pythonanywhere.com  http://127.0.0.1:8000 https://nursery-x.herokuapp.com/
 
-export const mainUrl = 'https://nurseryx.pythonanywhere.com';
+export const mainUrl = 'https://nursery-x.herokuapp.com/';
 
 const axiosInstance = axios.create({
   baseURL: mainUrl,
